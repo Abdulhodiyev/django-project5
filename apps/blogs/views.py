@@ -1,7 +1,31 @@
 from django.shortcuts import render
 
-def blogs_list_view(request):
-    return render(request, 'blogs/blog-list-sidebar-left.html')
+from apps.blogs.models import PostModel, CategoryModel, TagModel
 
-def blogs_detail_view(request):
-    return render(request, 'blogs/blog-detail.html')
+
+def blogs_list_view(request):
+    posts = PostModel.objects.all()
+    categories = CategoryModel.objects.all()
+    tags = TagModel.objects.all()
+
+    context = {
+        'posts': posts,
+        'categories': categories,
+        'tags': tags
+    }
+    return render(request, 'blogs/blog-list-sidebar-left.html', context)
+
+def blogs_detail_view(request, pk):
+    try:
+        post = PostModel.objects.get(id=pk)
+    except PostModel.DoesNotExist:
+        return render(request, 'pages/404.html')
+    categories = CategoryModel.objects.all()
+    tags = TagModel.objects.all()
+
+    context = {
+        'posts': post,
+        'categories': categories,
+        'tags': tags
+    }
+    return render(request, 'blogs/blog-detail.html', context)

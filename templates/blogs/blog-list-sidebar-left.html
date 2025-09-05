@@ -14,21 +14,13 @@
                             <div class="container no-index">
                                 <div class="breadcrumb">
                                     <ol>
-                                        <li>
+                                        {% for post in posts %}
+                                            <li>
                                             <a href="#">
-                                                <span>Home</span>
+                                                <span>{{ post.title }}</span>
                                             </a>
                                         </li>
-                                        <li>
-                                            <a href="#">
-                                                <span>Living Room</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <span>Sofa</span>
-                                            </a>
-                                        </li>
+                                        {% endfor %}
                                     </ol>
                                 </div>
                             </div>
@@ -52,27 +44,11 @@
                                                         <div class="cateTitle">
                                                             <a href="#" class="cateItem">Side Table</a>
                                                             <div class="subCategory collapse" id="subCategory-fruits" aria-expanded="true" role="status">
-                                                                <div class="cateTitle">
-                                                                    <a href="#" class="cateItem">Side Table</a>
+                                                                {% for cat in categories %}
+                                                                    <div class="cateTitle">
+                                                                    <a href="#" class="cateItem">{{ cat.title }}</a>
                                                                 </div>
-                                                                <div class="cateTitle">
-                                                                    <a href="#" class="cateItem">FIREPLACE</a>
-                                                                </div>
-                                                                <div class="cateTitle">
-                                                                    <a href="#" class="cateItem">FIREPLACE</a>
-                                                                </div>
-                                                                <div class="cateTitle">
-                                                                    <a href="#" class="cateItem">floor lamp</a>
-                                                                </div>
-                                                                <div class="cateTitle">
-                                                                    <a href="#" class="cateItem">ottoman</a>
-                                                                </div>
-                                                                <div class="cateTitle">
-                                                                    <a href="#" class="cateItem">armchair</a>
-                                                                </div>
-                                                                <div class="cateTitle">
-                                                                    <a href="#" class="cateItem">cushion</a>
-                                                                </div>
+                                                                {% endfor %}
                                                             </div>
                                                         </div>
                                                         <div class="cateTitle">
@@ -233,49 +209,11 @@
                                             </div>
                                             <div class="block-content">
                                                 <ul class="listSidebarBlog list-unstyled">
-                                                    <li>
-                                                        <a href="#" title="Show products matching tag Hot Trend">Hot Trend</a>
+                                                    {% for tag in tags %}
+                                                        <li>
+                                                        <a href="#" title="Show products matching tag Hot Trend">{{ tag.title }}</a>
                                                     </li>
-
-                                                    <li>
-                                                        <a href="#" title="Show products matching tag Jewelry">Jewelry</a>
-                                                    </li>
-
-                                                    <li>
-                                                        <a href="man.html" title="Show products matching tag Man">Man</a>
-                                                    </li>
-
-                                                    <li>
-                                                        <a href="#" title="Show products matching tag Party">Party</a>
-                                                    </li>
-
-                                                    <li>
-                                                        <a href="#" title="Show products matching tag SamSung">SamSung</a>
-                                                    </li>
-
-                                                    <li>
-                                                        <a href="#" title="Show products matching tag Shirt Dresses">Shirt Dresses</a>
-                                                    </li>
-
-                                                    <li>
-                                                        <a href="#" title="Show products matching tag Shoes">Shoes</a>
-                                                    </li>
-
-                                                    <li>
-                                                        <a href="#" title="Show products matching tag Summer">Summer</a>
-                                                    </li>
-
-                                                    <li>
-                                                        <a href="#" title="Show products matching tag Sweaters">Sweaters</a>
-                                                    </li>
-
-                                                    <li>
-                                                        <a href="#" title="Show products matching tag Winter">Winter</a>
-                                                    </li>
-
-                                                    <li>
-                                                        <a href="#" title="Show products matching tag Woman">Woman</a>
-                                                    </li>
+                                                    {% endfor %}
                                                 </ul>
                                             </div>
                                         </div>
